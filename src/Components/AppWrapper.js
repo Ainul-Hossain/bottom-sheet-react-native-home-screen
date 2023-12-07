@@ -6,7 +6,7 @@ import Header from './Header';
 import { SafeAreaView } from 'react-native';
 import BottomSheet, { useBottomSheetSpringConfigs } from '@gorhom/bottom-sheet';
 
-const AppWrapper = ({ children }) => {
+const AppWrapper = ({ children, setBottomSheet }) => {
 	const bottomSheetRef = useRef(null);
 
 	const snapPoints = useMemo(() => ['5%', '10%', '25%', '35%', '50%', '70%', '90%', '100%'], []);
@@ -15,7 +15,7 @@ const AppWrapper = ({ children }) => {
 		console.log('handleSheetChanges', index);
 	}, []);
 
-	const [bottomSheet, setBottomSheet] = useState(false);
+	// const [bottomSheet, setBottomSheet] = useState(false);
 
 	const handleClosePress = () => {
 		bottomSheetRef.current.close();
@@ -42,7 +42,7 @@ const AppWrapper = ({ children }) => {
 
 				{/* <Button title="Open" onPress={handleOpenPress} /> */}
 
-				{
+				{/* {
 					bottomSheet &&
 					<BottomSheet
 						ref={bottomSheetRef}
@@ -58,7 +58,7 @@ const AppWrapper = ({ children }) => {
 						</View>
 						<Button title="close" onPress={handleClosePress} />
 					</BottomSheet>
-				}
+				} */}
 			</View>
 		</SafeAreaView>
 	)
@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		paddingHorizontal: 16,
 		// backgroundColor: 'red'
+		// backgroundColor: 'white'
 	}
 })
 
